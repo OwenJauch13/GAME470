@@ -74,26 +74,119 @@ public class PlayTune : MonoBehaviour
             }
         }
 
+        if (notesList.Count == 0)
+        {
+            Debug.Log("Played an empty tune");
+        }
+
         notesList.Clear();
     }
 
     void NoteOneFunc(int notePlacement) //This function will take the position that note one was in and do something based off of that
     {
         Debug.Log("Note 1 was played at position " + notePlacement);
+        if (notePlacement == 1)
+        {
+            //Do something related to what note 1 owuld do in position 1
+        } else if (notePlacement == 2)
+        {
+            //Do something related to what note 1 owuld do in position 2
+        }
+        else if (notePlacement == 3)
+        {
+            //Do something related to what note 1 owuld do in position 3
+        }
+        else
+        {
+            //Do something related to what note 1 owuld do in position 4
+        }
     }
 
     void NoteTwoFunc(int notePlacement) //This function will take the position that note two was in and do something based off of that
     {
         Debug.Log("Note 2 was played at position " + notePlacement);
+        if (notePlacement == 1)
+        {
+            //Do something related to what note 2 owuld do in position 1
+        }
+        else if (notePlacement == 2)
+        {
+            //Do something related to what note 2 owuld do in position 2
+        }
+        else if (notePlacement == 3)
+        {
+            //Do something related to what note 2 owuld do in position 3
+        }
+        else
+        {
+            //Do something related to what note 2 owuld do in position 4
+        }
     }
 
     void NoteThreeFunc(int notePlacement) //This function will take the position that note three was in and do something based off of that
     {
         Debug.Log("Note 3 was played at position " + notePlacement);
+        if (notePlacement == 1)
+        {
+            //Do something related to what note 3 owuld do in position 1
+        }
+        else if (notePlacement == 2)
+        {
+            //Do something related to what note 3 owuld do in position 2
+        }
+        else if (notePlacement == 3)
+        {
+            //Do something related to what note 3 owuld do in position 3
+        }
+        else
+        {
+            //Do something related to what note 3 owuld do in position 4
+        }
     }
 
     void NoteFourFunc(int notePlacement) //This function will take the position that note four was in and do something based off of that
     {
         Debug.Log("Note 4 was played at position " + notePlacement);
+        if (notePlacement == 1)
+        {
+            //Do something related to what note 4 owuld do in position 1
+        }
+        else if (notePlacement == 2)
+        {
+            //Do something related to what note 4 owuld do in position 2
+        }
+        else if (notePlacement == 3)
+        {
+            //Do something related to what note 4 owuld do in position 3
+        }
+        else
+        {
+            //Do something related to what note 4 owuld do in position 4
+        }
+    }
+
+    void PutNoteIntoQ(int noteToBePutIn) //function that puts the note into the Q key
+    {
+        noteOnQKey = noteToBePutIn;
+    }
+
+    void PutNoteIntoE(int noteToBePutIn) //function that puts the note into the E key
+    {
+        noteOnEKey = noteToBePutIn;
+    }
+
+    void PutNoteIntoR(int noteToBePutIn) //function that puts the note into the R key
+    {
+        noteOnRKey = noteToBePutIn;
+    }
+
+    void PutNoteIntoF(int noteToBePutIn) //function that puts the note into the F key
+    {
+        noteOnFKey = noteToBePutIn;
+    }
+
+    void PlayEmptyTune() //This function will do the basic attack for playing an empty tune
+    {
+
     }
 }
