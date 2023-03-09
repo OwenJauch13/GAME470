@@ -257,7 +257,6 @@ public class PlayTune : MonoBehaviour
 
     void PlayEmptyTune() //This function will do the basic attack for playing an empty tune
     {
-        Debug.Log(1234);
         tuneRing.SetActive(true);
         canPlayTune = false;
         StartCoroutine(TuneCooldown(tuneCooldownVar, tuneLastTime));
