@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    private Renderer renderer;
 
     public Transform playerObj;
     public GameObject spawn;
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour
         enemyMesh = GetComponent<NavMeshAgent>();
         tune = playerObj.gameObject.GetComponent<PlayTune>();
         spawnScript = spawn.gameObject.GetComponent<SpawnEnemy>();
+        renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -44,7 +46,18 @@ public class Enemy : MonoBehaviour
             tune = playerObj.gameObject.GetComponent<PlayTune>();
             Debug.Log("Hit");
         }*/
-
+        renderer.material.color = Color.red;
         enemyHP -= tune.baseDamage;
+        renderer.material.color = Color.white;
     }
+
+    private void OnMouseEnter()
+    {
+        renderer.material.color = Color.red;
+    }
+    private void OnMouseExit()
+    {
+        renderer.material.color = Color.white;
+    }
+
 }
