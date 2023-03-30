@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     protected NavMeshAgent enemyMesh;
     PlayTune tune;
     SpawnEnemy spawnScript;
+    private IEnumerator coroutine;
 
     public float enemyHP = 2.0f;
 
@@ -21,6 +22,8 @@ public class Enemy : MonoBehaviour
         tune = playerObj.gameObject.GetComponent<PlayTune>();
         spawnScript = spawn.gameObject.GetComponent<SpawnEnemy>();
         renderer = GetComponent<Renderer>();
+
+        coroutine = ChangeColor();
     }
 
     // Update is called once per frame
@@ -32,8 +35,9 @@ public class Enemy : MonoBehaviour
         {
             //have it so enemy gets fucking killed
             //spawnScript.EnemySpawn();
-            //Destroy(gameObject);
-            transform.position = spawn.transform.position;
+            Destroy(gameObject);
+            Destroy(gameObject);
+            //transform.position = spawn.transform.position;
             enemyHP = 2.0f;
         }
     }
@@ -42,13 +46,16 @@ public class Enemy : MonoBehaviour
     {
         /*if (collision.gameObject.tag == "Tune")
         {
+            Debug.Log("Hit");
             PlayTune tune;
             tune = playerObj.gameObject.GetComponent<PlayTune>();
-            Debug.Log("Hit");
         }*/
-        renderer.material.color = Color.red;
         enemyHP -= tune.baseDamage;
-        renderer.material.color = Color.white;
+        Debug.Log("Hit");
+        if (enemyHP > 0)
+        {
+            StartCoroutine(coroutine);
+        }
     }
 
     private void OnMouseEnter()
@@ -60,4 +67,11 @@ public class Enemy : MonoBehaviour
         renderer.material.color = Color.white;
     }
 
+    private IEnumerator ChangeColor()
+    {
+        Debug.Log("Change Color");
+        renderer.material.color = Color.red;
+        yield return new WaitForSeconds(1.0f);
+        renderer.material.color = Color.white;
+    }
 }
