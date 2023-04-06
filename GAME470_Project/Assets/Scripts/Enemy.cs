@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : EnemyInherit
 {
     private Renderer renderer;
 
@@ -13,9 +13,9 @@ public class Enemy : MonoBehaviour
     PlayTune tune;
     SpawnEnemy spawnScript;
     private IEnumerator coroutine;
+    public PlayerStats player;
 
-    public float enemyHP = 2.0f;
-    private float baseSpeed = 2.0f;
+    
 
     void Start()
     {
@@ -30,8 +30,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMove();
-        EnemyStats();
+        enemyMesh.SetDestination(playerObj.position);
 
         if(enemyHP <= 0.0f)
         {
@@ -51,56 +50,48 @@ public class Enemy : MonoBehaviour
             Debug.Log("Hit");
             PlayTune tune;
             tune = playerObj.gameObject.GetComponent<PlayTune>();
-        }*/
+        }
+        
+        if (collision.gameObject.tag == "HitPlayer")
+        {
+            Debug.Log("Hit the player");
+        }
         enemyHP -= tune.baseDamage;
         Debug.Log("Hit");
         if (enemyHP > 0)
         {
             StartCoroutine(coroutine);
+        }*/
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "HitPlayer")
+        {
+            Debug.Log("Hit the player");
+            player.TakeDamage();
+        }
+
+        if (other.tag == "Tune")
+        {
+            Debug.Log("Hit");
+            PlayTune tune;
+            tune = playerObj.gameObject.GetComponent<PlayTune>();
+            enemyHP -= tune.baseDamage;
+            if (enemyHP > 0)
+            {
+                StartCoroutine(coroutine);
+            }
         }
     }
 
-    private void EnemyMove()
+    private void OnMouseEnter()
     {
-        enemyMesh.speed = baseSpeed;
-        enemyMesh.SetDestination(playerObj.position);
-
-        if (enemyMesh.tag == "Scout")
-        {
-            baseSpeed = 6.0f;
-        }
-        else if (enemyMesh.tag == "Warrior")
-        {
-            baseSpeed = 2.0f;
-        }
-        else if (enemyMesh.tag == "Brute")
-        {
-            baseSpeed = 4.0f;
-        }
-        else if (enemyMesh.tag == "Healer")
-        {
-            baseSpeed = 2.0f;
-        }
+        renderer.material.color = Color.red;
     }
-
-    private void EnemyStats()
+    private void OnMouseExit()
     {
-        if (enemyMesh.tag == "Scout")
-        {
-            enemyHP = 2.0f;
-        }
-        else if (enemyMesh.tag == "Warrior")
-        {
-            enemyHP = 6.0f;
-        }
-        else if (enemyMesh.tag == "Brute")
-        {
-            enemyHP = 4.0f;
-        }
-        else if (enemyMesh.tag == "Healer")
-        {
-            enemyHP = 2.0f;
-        }
+        renderer.material.color = Color.white;
     }
 
     private IEnumerator ChangeColor()
@@ -109,5 +100,10 @@ public class Enemy : MonoBehaviour
         renderer.material.color = Color.red;
         yield return new WaitForSeconds(1.0f);
         renderer.material.color = Color.white;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
