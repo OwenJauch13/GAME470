@@ -7,6 +7,7 @@ public class SimpleUI : MonoBehaviour
 {
     public GameObject player;
     PlayTune playTune;
+    public PlayerStats playerStats;
     public Image qKeyImg;
     public Image eKeyImg;
     public Image rKeyImg;
@@ -15,6 +16,7 @@ public class SimpleUI : MonoBehaviour
     public Text eNote;
     public Text rNote;
     public Text fNote;
+    public Text health;
 
     public bool qKeyInUse;
     public bool eKeyInUse;
@@ -38,6 +40,7 @@ public class SimpleUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        health.GetComponent<Text>().text = playerStats.health.ToString();
         qKeyInUse = player.GetComponent<PlayTune>().canUseQKey;
         eKeyInUse = player.GetComponent<PlayTune>().canUseEKey;
         rKeyInUse = player.GetComponent<PlayTune>().canUseRKey;
