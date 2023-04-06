@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator coroutine;
 
     public float enemyHP = 2.0f;
+    private float baseSpeed = 2.0f;
 
     void Start()
     {
@@ -29,7 +30,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyMesh.SetDestination(playerObj.position);
+        EnemyMove();
+        EnemyStats();
 
         if(enemyHP <= 0.0f)
         {
@@ -58,13 +60,47 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    private void EnemyMove()
     {
-        renderer.material.color = Color.red;
+        enemyMesh.speed = baseSpeed;
+        enemyMesh.SetDestination(playerObj.position);
+
+        if (enemyMesh.tag == "Scout")
+        {
+            baseSpeed = 6.0f;
+        }
+        else if (enemyMesh.tag == "Warrior")
+        {
+            baseSpeed = 2.0f;
+        }
+        else if (enemyMesh.tag == "Brute")
+        {
+            baseSpeed = 4.0f;
+        }
+        else if (enemyMesh.tag == "Healer")
+        {
+            baseSpeed = 2.0f;
+        }
     }
-    private void OnMouseExit()
+
+    private void EnemyStats()
     {
-        renderer.material.color = Color.white;
+        if (enemyMesh.tag == "Scout")
+        {
+            enemyHP = 2.0f;
+        }
+        else if (enemyMesh.tag == "Warrior")
+        {
+            enemyHP = 6.0f;
+        }
+        else if (enemyMesh.tag == "Brute")
+        {
+            enemyHP = 4.0f;
+        }
+        else if (enemyMesh.tag == "Healer")
+        {
+            enemyHP = 2.0f;
+        }
     }
 
     private IEnumerator ChangeColor()

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Tune
+  - Scout
+  - Warrior
+  - Brute
+  - Healer
   layers:
   - Default
   - TransparentFX
