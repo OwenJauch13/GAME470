@@ -68,13 +68,14 @@ public class Enemy : EnemyInherit
     {
         if (other.tag == "HitPlayer")
         {
-            Debug.Log("Hit the player");
-            player.TakeDamage();
+            if (player.canBeHit)
+            {
+                player.TakeDamage();
+            }
         }
 
         if (other.tag == "Tune")
         {
-            Debug.Log("Hit");
             PlayTune tune;
             tune = playerObj.gameObject.GetComponent<PlayTune>();
             enemyHP -= tune.baseDamage;

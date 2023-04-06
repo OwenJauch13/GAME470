@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int health;
+    public bool canBeHit;
     // Start is called before the first frame update
     void Start()
     {
         health = 3;
+        canBeHit = true;
     }
 
     // Update is called once per frame
@@ -21,11 +23,21 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage()
     {
         health--;
-        Debug.Log("Took Damage");
         if (health <= 0)
         {
-            Debug.Log("Player Dead");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    public void StartInvulnChange()
+    {
+        StartCoroutine(ChangeInvuln());
+    }
+
+    private IEnumerator ChangeInvuln()
+    {
+        canBeHit = false;
+        yield return new WaitForSeconds(5);
+        canBeHit = true;
     }
 }
