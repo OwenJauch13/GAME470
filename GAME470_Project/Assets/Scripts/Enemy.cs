@@ -23,6 +23,7 @@ public class Enemy : EnemyInherit
         tune = playerObj.gameObject.GetComponent<PlayTune>();
         spawnScript = spawn.gameObject.GetComponent<SpawnEnemy>();
         renderer = GetComponent<Renderer>();
+        
 
         coroutine = ChangeColor();
     }
@@ -30,6 +31,7 @@ public class Enemy : EnemyInherit
     // Update is called once per frame
     void Update()
     {
+        playerObj = GameObject.Find("Player").GetComponent<Transform>();
         enemyMesh.SetDestination(playerObj.position);
 
         if(enemyHP <= 0.0f)
