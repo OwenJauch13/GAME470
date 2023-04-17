@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.AI;
+
 
 public class ProcGen : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class ProcGen : MonoBehaviour
     public GameObject[] rooms;
     public Vector2 offset;
     
+
     List<Cell> board;
 
     // Start is called before the first frame update
@@ -23,6 +26,7 @@ public class ProcGen : MonoBehaviour
     {
         
         MapGenerator();
+        NavMeshBuilder.BuildNavMesh();
     }
 
     // Update is called once per frame
