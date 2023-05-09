@@ -12,7 +12,8 @@ public class SpecialNote : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerSpeed = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerStats = GameObject.Find("HitPlayer").GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame

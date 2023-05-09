@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 
 
 public class ProcGen : MonoBehaviour
@@ -26,7 +26,7 @@ public class ProcGen : MonoBehaviour
     {
         
         MapGenerator();
-        NavMeshBuilder.BuildNavMesh();
+        //NavMeshBuilder.BuildNavMesh();
     }
 
     // Update is called once per frame
