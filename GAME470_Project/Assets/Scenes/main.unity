@@ -472,17 +472,21 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0000000039778514
       objectReference: {fileID: 0}
+    - target: {fileID: 1555775255651164186, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
+      propertyPath: m_Radius
+      value: 1.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1555775255651164189, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4888047
+      value: 0.85652673
       objectReference: {fileID: 0}
     - target: {fileID: 1555775255651164189, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4888047
+      value: 0.85652673
       objectReference: {fileID: 0}
     - target: {fileID: 1555775255651164189, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4888047
+      value: 0.85652673
       objectReference: {fileID: 0}
     - target: {fileID: 1555775255840549036, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -515,6 +519,22 @@ PrefabInstance:
     - target: {fileID: 1555775256542478730, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.0000000016409462
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555775257023396588, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.5746236
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555775257023396588, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.005339274
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555775257023396588, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.7832465
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555775257023396591, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1555775256373588627, guid: ac66754d09a683c49a600ca13a6dbae8, type: 3}
