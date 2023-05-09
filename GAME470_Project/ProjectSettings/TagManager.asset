@@ -8,6 +8,7 @@ TagManager:
   - Tune
   - SpecialNote
   - HitPlayer
+  - EndGameChest
   layers:
   - Default
   - TransparentFX

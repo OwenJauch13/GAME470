@@ -82,6 +82,19 @@ public class PlayerMovement : MonoBehaviour
         {
             other.GetComponent<SpecialNote>().GotPickedUp();
         }
+
+        if (other.tag == "EndGameChest")
+        {
+            if (!other.GetComponent<EndGameChest>().isEndChest)
+            {
+                Debug.Log("touching the bonepile");
+                other.GetComponent<EndGameChest>().SetToBones();
+            } else
+            {
+                Debug.Log("touching the good chest");
+                other.GetComponent<EndGameChest>().SetToOpen();
+            }
+        }
     }
 
     public void StartSpeedChange()

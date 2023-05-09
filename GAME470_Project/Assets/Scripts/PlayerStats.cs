@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
         health--;
         if (health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(0);
         }
     }
 
