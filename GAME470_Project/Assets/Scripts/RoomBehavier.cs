@@ -12,6 +12,7 @@ public class RoomBehavier : MonoBehaviour
     private void Start()
     {
         //UpdateRoom(test);
+        gameObject.GetComponent<NavMeshSurface>().Bake();
     }
 
     public void UpdateRoom(bool[] status)
