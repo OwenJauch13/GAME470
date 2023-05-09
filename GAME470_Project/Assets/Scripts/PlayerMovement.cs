@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "SpecialNote")
         {
-            specialNote.GotPickedUp();
+            other.GetComponent<SpecialNote>().GotPickedUp();
         }
     }
 

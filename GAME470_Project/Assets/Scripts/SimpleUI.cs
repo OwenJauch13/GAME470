@@ -26,6 +26,7 @@ public class SimpleUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerStats = GameObject.Find("HitPlayer").GetComponent<PlayerStats>();
         playTune = player.GetComponent<PlayTune>();
         qKeyImg.GetComponent<Image>().color = new Color32(27, 209, 32, 255);
         eKeyImg.GetComponent<Image>().color = new Color32(27, 209, 32, 255);

@@ -23,8 +23,8 @@ public class Enemy : EnemyInherit
         tune = playerObj.gameObject.GetComponent<PlayTune>();
         spawnScript = spawn.gameObject.GetComponent<SpawnEnemy>();
         renderer = GetComponent<Renderer>();
-        
 
+        player = GameObject.Find("PlayerObject").GetComponent<PlayerStats>();
         coroutine = ChangeColor();
     }
 
@@ -70,9 +70,10 @@ public class Enemy : EnemyInherit
     {
         if (other.tag == "HitPlayer")
         {
-            if (player.canBeHit)
+            
+            if (other.GetComponent<PlayerStats>().canBeHit)
             {
-                player.TakeDamage();
+                other.GetComponent<PlayerStats>().TakeDamage();
             }
         }
 
@@ -88,14 +89,14 @@ public class Enemy : EnemyInherit
         }
     }
 
-    private void OnMouseEnter()
+    /*private void OnMouseEnter()
     {
         renderer.material.color = Color.red;
     }
     private void OnMouseExit()
     {
         renderer.material.color = Color.white;
-    }
+    }*/
 
     private IEnumerator ChangeColor()
     {
